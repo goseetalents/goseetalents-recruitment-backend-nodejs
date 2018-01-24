@@ -1,0 +1,64 @@
+{
+  "name": "api-goseeapplicants",
+  "version": "1.0.0",
+  "description": "Node.js REST-API",
+  "main": "dist",
+  "scripts": {
+    "dev": "nodemon -w src --exec \"babel-node src --presets es2015,stage-0 --plugins add-module-exports\"",
+    "build": "babel src -s -D -d dist --presets es2015,stage-0",
+    "start": "node dist",
+    "prestart": "npm run -s build",
+    "lint": "eslint src",
+    "test": "NODE_ENV=test nodemon --exec \"mocha ./src/server/tests/*.test.js --require babel-register --recursive\""
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": 7,
+      "sourceType": "module"
+    },
+    "rules": {
+      "no-console": 0,
+      "no-unused-vars": 1
+    },
+    "env": {
+      "node": true,
+      "mocha": true
+    }
+  },
+  "repository": "none",
+  "author": "aleksandr.maksimoviclt@gmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.9.0",
+    "babel-core": "^6.9.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-register": "^6.9.0",
+    "chai": "^4.1.2",
+    "eslint": "^4.12.1",
+    "http-status": "^1.0.1",
+    "mocha": "^4.0.1",
+    "nodemon": "^1.12.5",
+    "sinon": "^4.1.3",
+    "sinon-as-promised": "^4.0.3",
+    "sinon-mongoose": "^2.0.2",
+    "supertest": "^3.0.0",
+    "supertest-as-promised": "^4.0.2"
+  },
+  "dependencies": {
+    "async": "^2.6.0",
+    "bcrypt": "^1.0.3",
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "express-jwt": "^5.3.0",
+    "express-validation": "^1.0.2",
+    "joi": "^13.0.2",
+    "jsonwebtoken": "^8.1.0",
+    "mongoose": "^4.13.6",
+    "morgan": "^1.9.0"
+  }
+}
