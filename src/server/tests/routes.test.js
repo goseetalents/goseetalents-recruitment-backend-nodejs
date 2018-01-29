@@ -6,8 +6,7 @@ import httpStatus from 'http-status';
 import mongoose from 'mongoose';
 import request from 'supertest';
 import sinon from 'sinon';
-import Card from '../models/card';
-import List from '../models/list';
+import Applicant from '../models/applicant';
 import User from '../models/user';
 
 mongoose.models = {};
@@ -15,13 +14,13 @@ mongoose.modelSchemas = {};
 
 describe('## API Tests', () => {
 
-  let sandbox, card, list, user;
+  let sandbox, applicant, user;
 
   beforeEach((done) => {
     clearDatabase(() => {
       sandbox = sinon.sandbox.create();
 
-      List
+      Applicant
         .create({
           name: 'testlist'
         })
